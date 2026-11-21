@@ -1,0 +1,51 @@
+<script src="/jquery.js"></script>
+<script>
+    function loadEventList() {
+        // Show the loading spinner
+        $( "div.loading" ).show();
+
+        // Fetch the event list
+        $.ajax({
+            url: "/api/get_events",
+            success: function( result ) {
+                $( "div.loading" ).hide();
+                
+                // Replace the "event list" element with the result of the query
+                document.getElementById("event-list").innerHTML = result;
+                console.log("AJAX request completed");
+            }
+        });
+
+        $.ajax({
+            url: "/api/get_previous_events",
+            success: function( result ) {
+                // Replace the "previous event list" element with the result of the query
+                document.getElementById("previous-event-list").innerHTML = result
+                console.log("AJAX request completed");
+            }
+        });
+    }
+
+    loadEventList();
+</script>
+
+<button class = "btn btn-outline-light mb-2" onclick="loadEventList()">Refresh Event List</button>
+
+<div class="loading mb-2">
+    <p>Loading events...</p>
+
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<div id="event-list">
+</div>
+
+<hr>
+
+<h1>Previous events</h1>
+<p>Note: This list is not comprehensive. It only goes back to February 2026.</p>
+
+<div id="previous-event-list">
+</div>
