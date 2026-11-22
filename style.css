@@ -1,0 +1,28 @@
+html {
+    background-color: #f78f1e;
+    margin: 0;
+    padding: 0;
+
+    --gi
+}
+
+img {
+    width: 200px;
+}
+
+header {
+    background-color: #ee3724;
+    width: 100%;
+    margin: -10px;
+    padding: 10px
+}
+
+footer {
+    margin: auto;
+}
+
+div.content {
+    max-width: 300px;
+    background-color: #9a346;
+    margin: auto;
+}
